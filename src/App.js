@@ -1,5 +1,5 @@
 import NavBar from './components/NavBar';
-import ItemContainer from './components/ItemContainer';
+import ItemContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount'
 import data from './components/Item'
 import { useState } from 'react';
