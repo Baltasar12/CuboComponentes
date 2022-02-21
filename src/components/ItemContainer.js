@@ -9,7 +9,7 @@ export default function ItemContainer(props) {
         <h2>Productos</h2>
         <div className="row">
         {products.map((product)=>(
-            <ItemList key={product.id} product={product}></ItemList>
+            <ItemList key={product.id} product={product} onAdd={onAdd}></ItemList>
         )
         )}
         </div>

@@ -15,7 +15,7 @@ const data = {
         {
             id:'3',
             title:'Mouse',
-            price:1200,
+            price:300,
             pictureUrl:'https://resource.logitechg.com/w_460,c_limit,q_auto,f_auto,b_rgb:f4f4f4,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/g203-hero.png?v=1',
         }
     ]
