@@ -1,0 +1,33 @@
+.card-product {
+    background: #f2f8ff;
+    box-shadow: 0 4px 8px 0 rgba(11, 29, 81, 1);
+    max-width: 300px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    img{
+        width: 100%;
+    }
+    h2{
+        color: #0B1D51;
+    }
+    p{
+        padding: 10px 0;
+    }
+    button {
+        font-family: Helvetica, Arial, sans-serif;
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #ff793f;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 14px;
+        &:hover {
+            opacity: 0.7;
+          }
+      }
+  }
