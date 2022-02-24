@@ -1,15 +1,21 @@
-//Header
-import React from "react";
+import React from "react"
+import cubo1 from "./cubo1.png"
+import './NavBar.scss'
+import CartWidget from './CartWidget';
 
-export default function NavBar(props){
+const NavBar = () => {
+
     return(
-        <header className="row block center">
-            <div>
-                <a href="#"><h1>CUBO</h1></a>
+        <nav className="navbar-items">
+            <div className="navbar-logo">
+                <img src={cubo1} alt={"logo"}/>
             </div>
-            <div>
-                <a href="#/Cart">Cart</a> <a href="#/SingIn">SingIn</a>
-            </div>
-        </header>
-    );
+            <ul className="nav-menu">
+                <li className="nav-link"><a href="#singin">SingIn</a></li>
+                <li className="nav-link-cart"><a href="#cart"><CartWidget/></a></li>
+            </ul>
+            </nav>
+    )
+
 }
+export default NavBar;
