@@ -1,31 +1,38 @@
 //Main
 import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import './ItemListContainer.scss';
 import ItemList from '../ItemList/ItemList';
 import Products from "../../listProducts";
 
 
-const listProducts = new Promise (
-    (result, reject) => setTimeout(() => result(Products), 3000)
-
-);
-
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
     const [list, setList] = useState([]);
-    useEffect(() => {
-        listProducts.then(setList)
-    }, [])
+    const {categoryName} = useParams();
 
+    function filtroCategoria(item) {
+        return item.category === categoryName
+    }
+
+    useEffect(() => {
+        setTimeout(() =>{
+            let itemsPorCategoria = Products.filter(filtroCategoria);
+            setList(categoryName ? itemsPorCategoria : Products);
+        },1000)
+    },)
+    
+    
     return(
         <section>
-            <h2>{greeting}</h2>
-            <p> <span>CUBO</span> es una tienda que ofrece los productos electronicos más recientes del mercado. Contamos con una gran variedad de productos, entre los cuales tenemos: teclados, auriculares, notebooks, entre otros. Estos productos son ideales para gaming, trabajo y estudio.</p>
-            
             <ItemList list={list} />
         </section>
+        
     )
 }
+
 //<ItemList list={list} />
+// <p> <span>CUBO</span> es una tienda que ofrece los productos electronicos más recientes del mercado. Contamos con una gran variedad de productos, entre los cuales tenemos: teclados, auriculares, notebooks, entre otros. Estos productos son ideales para gaming, trabajo y estudio.</p>
+            
 
 export default ItemListContainer;

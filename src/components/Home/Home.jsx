@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 
 const Home= ({greeting}) => {

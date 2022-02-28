@@ -6,22 +6,19 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 //Desarrollado más acorde a las filminas y de forma más simple
-const ItemCount = ({stock, initial}) =>{
-    const [contador, setContador] = React.useState(initial);
+const ItemCount = ({stock, initial, count, increase, decrease, onAdd}) =>{
 
 
-    const onAdd = () => { setContador(contador + 1) }
-    const onRest = () => { setContador(contador - 1) }
 
     return(
         <div className="card-count">
-            <h3>Item</h3>
+            <h5>Cantidad:</h5>
             <div className="_grid">
-              <button className="_btn _column product-subtract" onClick={onRest} disabled={contador === initial} ><FontAwesomeIcon icon={faMinus} /></button>
-              <div className="_column product-qty">{contador}</div>
-              <button className="_btn _column product-plus" onClick={onAdd} disabled={contador === stock} ><FontAwesomeIcon icon={faPlus} /></button>
+              <button className="_btn _column product-subtract" onClick={decrease} disabled={count === initial} ><FontAwesomeIcon icon={faMinus} /></button>
+              <div className="_column product-qty">{count}</div>
+              <button className="_btn _column product-plus" onClick={increase} disabled={count === stock} ><FontAwesomeIcon icon={faPlus} /></button>
             </div>
-            <button className="_btn product-add" disabled>Agregar al Carrito</button>
+            <button className="_btn product-add" onClick={onAdd}>Agregar al Carrito</button>
 
         </div>
     )

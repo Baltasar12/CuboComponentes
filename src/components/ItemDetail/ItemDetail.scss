@@ -1,11 +1,14 @@
 .card-product-detail {
     background: #ffffff;
-    border: 2px solid #A1869E;
+    border: 2px solid black;
     width: 50%;
     margin: auto;
     display: flex;
     text-align: center;
     margin-top: 20px;
+    p{
+        color: black;
+    }
     .img-detail{
         padding: 10px;
         img{
@@ -28,7 +31,7 @@
                 content: 'COP $';
             }
         }
-        .btn{
+        .btn-finalizar{
             font-family: Helvetica, Arial, sans-serif;
             display: inline-block;
             border: none;
@@ -37,9 +40,9 @@
             font-weight: 300;
             border-radius: 5px;
             font-size: .875em;
-            margin-top: 0.45rem;
+            margin-top: 3.35rem;
             background-color: #ff793f;
-            color: #ecf0f1;
+            color: black;
             width: 300px;
         }
     }
