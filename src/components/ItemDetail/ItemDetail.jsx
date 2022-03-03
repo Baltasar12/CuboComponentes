@@ -1,19 +1,22 @@
+import './ItemDetail.scss';
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import ItemCount from "../Contador/ItemCount";
-import './ItemDetail.scss'
+import useCartContext from '../CartContext/CartContext';
 
-const ItemDetail = ({item: { id, name, description, img, price }}) => {
+const ItemDetail = ({item}) => {
   const stocks = 10
-  const initial = 0
+  const initial = 1
   const [stock, setSotck] = useState(stocks)
   const [count, setCount] = useState(initial)
   const [add, setAdd] = useState(false)
+  const [quantity, setQuantity] = useState(0)
+  const { addItem } = useCartContext()
 
   const increase = () => { 
       if(count < stocks){
-        setCount(count + 1)
-        setSotck(stock - 1)
+          setCount(count + 1)
+          setSotck(stock - 1)
       }
   }
 
@@ -24,33 +27,43 @@ const ItemDetail = ({item: { id, name, description, img, price }}) => {
       }
   }
 
-  const onAdd = () =>{
+  const onAdd = () => {
       if (count <= stocks){
-          setAdd(true)
-      }
+        setAdd(true)
+        setQuantity(count)
+    }console.log(quantity)
   }
+
+  const addToCart = () => {
+      addItem(item, quantity)
+      console.log(quantity)
+  }
+
+
   return (
-  <div className="card-product-detail">
-    <div className="img-detail">
-        <img src={img} alt={id} width="350" />
-    </div>
-  <div className="info-detail">
-    <h3>{name}</h3>
-      <p className="card-description">{description}</p>
-      <p className="card-price">{price}</p>
-      <p>Unidades Disponibles: {stock}</p>
-        {add ? <Link to= {'/cart'}><button className="btn-finalizar">Comprar Ahora</button></Link> :
-          <ItemCount stock={stocks}
-          initial={initial}
-          count={count}
-          increase={increase}
-          decrease={decrease}
-          onAdd={onAdd}
-          />
-        }
-  </div>
-  </div>
-    )
+      
+      <div className="card-product-detail">
+          <div className="img-detail">
+              <img src={item.img} alt={item.id} width="350" />
+          </div>
+          <div className="info-detail">
+              <h3>{item.name}</h3>
+              <p className="card-description">{item.description}</p>
+              <p className="card-price">{item.price}</p>
+              <p>Unidades Disponibles: {stock-initial}</p>
+              <ItemCount stock={stocks}
+                  initial={initial}
+                  count={count}
+                  increase={increase}
+                  decrease={decrease}
+                  onAdd={onAdd}
+                  />
+              {add ? <Link to= {'/cart'}><button className="btn-finalizar" onClick={addToCart}>Comprar Ahora</button></Link> : null}
+              
+          </div>
+      </div>
+         
+  )
 }
 
 export default ItemDetail
