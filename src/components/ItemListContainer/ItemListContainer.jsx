@@ -42,7 +42,7 @@ const ItemListContainer = () => {
             const itemCollectionQuery = itemCollection.get()
     
             itemCollectionQuery.then((querySnapshot) => {
-                setList(querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+                setList(querySnapshot.docs.map(doc => ({...doc.data(), id: doc.categoryId})))
             })
             .catch((e) => {console.log(e)})
         }
