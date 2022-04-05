@@ -1,3 +1,15 @@
+# Proyecto Final de React JS - Coderhouse
+
+E-commerce construido con React JS para el Proyecto Final de Coderhouse
+
+## Dependencias Utilizadas 🛠️
+* [React JS](https://reactjs.org/)
+* [Font Awesome Icon](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react)
+* [Firebase](https://firebase.google.com/)
+* [React Router DOM](https://v5.reactrouter.com/web/guides/quick-start)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
