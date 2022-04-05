@@ -1,20 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
-//import Products from '../../listProducts';
 import ItemDetail from '../ItemDetail/ItemDetail' ;
-import { getFirestore } from 'firebase/firestore';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase';
-
+import {useAppContext} from '../AppContext';
+import { getItem } from '../firebase/firebaseService';
 
 const ItemDetailContainer = () => {
-    const [loading, setLoading] = useState(false);
+   /* const [loading, setLoading] = useState(false);
     const [item, setItem] = useState([]);
-    
     const {productId} = useParams();
-    
-   /* useEffect(() =>{
-        
+    useEffect(() =>{ 
         const db = getFirestore()
         const getItem = db.collection("itemCollection").doc(productId)
 
@@ -23,21 +17,22 @@ const ItemDetailContainer = () => {
             setLoading(false) 
         })
         .catch((e) => {console.log(e)})
-
     }, [productId])*/
 
 
+    const {products} = useAppContext();
+    const [item, setItem] = useState();
+    const {id} = useParams();
 
     useEffect(()=>{
-        const getData = async()=>{
-            const query = collection(db, 'items');
-            const response = await getDocs(query);
-            const data = response.docs.map(doc=>doc.data());
-            console.log('data', data)
-        }
-    
-        getData();
-    },[])
+        getItem(id).then((item)=>setItem({...item.data(), id:item.id}))
+
+    },[id,products])
+
+    const[terminar,setTerminar]=useState(false);
+    const onAdd = ()=>{
+        setTerminar(true);
+    }
 
 
 return(

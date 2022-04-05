@@ -1,7 +1,7 @@
 import React from "react"
 import cubo1 from "./cubo1.png"
 import './NavBar.scss'
-import CartWidget from './CartWidget';
+import CartWidget from '../Cart/CartWidget/CartWidget';
 
 const NavBar = () => {
 

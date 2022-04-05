@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import useCartContext from '../CartContext/CartContext';
+import useCartContext from '../Context/CartContext';
 import './CartWidget.scss';
 import {Link} from 'react-router-dom';
 

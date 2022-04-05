@@ -2,7 +2,7 @@ import './ItemDetail.scss';
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import ItemCount from "../Contador/ItemCount";
-import useCartContext from '../CartContext/CartContext';
+import useCartContext from '../Context/CartContext';
 
 const ItemDetail = ({item}) => {
     const stocks = 10

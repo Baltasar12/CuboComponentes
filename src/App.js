@@ -6,7 +6,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
-import {StoreProvider} from './components/CartContext/CartContext';
+import {StoreProvider} from './components/Context/CartContext';
+import AppContextProvider from './components/AppContext';
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
     
     <>
+    <AppContextProvider>
     <StoreProvider>
     <BrowserRouter>
       <NavBar/>
@@ -26,6 +28,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </StoreProvider>
+    </AppContextProvider>
     </>
     
   );
